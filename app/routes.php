@@ -22,3 +22,17 @@ Route::get('/portfolio', 'HomeController@showPortfolio');
 Route::get('/myportfolio', 'HomeController@showMyPortfolio');
 
 Route::get('/rolldice/{roll?}/{min?}/{max?}', 'HomeController@rollDice');
+
+Route::get('/simplesimon', 'HomeController@showSimon');
+
+
+// Route::get('/posts', 'PostsController@index');
+// Route::get('/posts/create', 'PostsController@create');
+// Route::post('/posts', 'PostsController@store');
+// Route::get('/posts/{post}', 'PostsController@show');
+// Route::get('/posts/{post}/edit', 'PostsController@edit');
+// Route::put('/posts/{post}', 'PostsController@update');
+// Route::delete('/posts/{post}', 'PostsController@delete');
+
+//the seven above are the same as bellow
+Route::resource('posts', 'PostsController');

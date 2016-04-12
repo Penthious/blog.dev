@@ -45,6 +45,17 @@ class HomeController extends BaseController {
 		return Redirect::action('HomeController@showResume');
 	}
 
+	public function showSimon()
+	{
+		return View::make('simplesimon');
+	}
+
+	public function showSimpleSimon()
+	{
+		return Redirect::action('HomeController@showSimon');
+	}
+
+
 
 	public function rollDice($roll = 1, $min = 1, $max = 6)
 	{

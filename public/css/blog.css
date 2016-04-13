@@ -1,18 +1,23 @@
 /*
  * Globals
  */
+
 html {
-    height: 100%;
+    position: relative;
+    min-height: 100%;
 }
 body {
   font-family: Georgia, "Times New Roman", Times, serif;
   color: white;
   background-color: black;
   height: 100%;
+      margin: 0 0 100px;
 }
 
 .blogHolder{
     background-color: #545454;
+    padding-top: 50px;
+    min-width: 1200px;
 }
 
 .navContainer{
@@ -27,6 +32,11 @@ body {
     position: relative;
     left:100px;
 }
+
+.glyphicon {
+    font-size: 9px;
+}
+
 .dateColor{
     color: #EE7600;
     font-size: 1.2em;
@@ -49,6 +59,10 @@ h6, .h6 {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: normal;
   color: #421313;
+}
+
+.modalStyle{
+    padding-top: 70px;
 }
 
 
@@ -80,6 +94,7 @@ h6, .h6 {
   padding-right: 20px;
   font-weight: 550;
   color: #cdddeb;
+    font-size: 2rem;
 }
 .blog-nav-item:hover,
 .blog-nav-item:focus {
@@ -103,6 +118,7 @@ h6, .h6 {
   border-right: 5px solid transparent;
   border-bottom: 5px solid;
   border-left: 5px solid transparent;
+
 }
 
 
@@ -184,9 +200,16 @@ h6, .h6 {
 /*
  * Footer
  */
+ footer {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 100px;
+    width: 100%;
+}
 
 .blog-footer {
-  padding: 40px 0;
+  padding: 10px 0;
   color: #999;
   text-align: center;
   background-color: darkred;
@@ -207,4 +230,20 @@ h6, .h6 {
 
 .hoverInvert:hover {
 	-webkit-filter: invert(100%);
+}
+
+
+.portfolioItem {
+    width: 80%;
+    height: auto;
+    margin-left: 50px
+}
+
+.mainProject{
+    text-align: center;
+    left: 40px;
+}
+
+.textBoxColors{
+    color: black;
 }

@@ -1,0 +1,47 @@
+body{
+  background-color: grey;
+}
+#timer{
+    font-size:3em;
+}
+#topSection {
+    margin: auto;
+    text-align: center;
+    margin-bottom:10px;
+
+}
+#startGame{
+    font-size: 1.4em;
+    border-radius: 6px;
+    background-color: transparent;
+    margin-top:10px;
+
+}
+#startGame:focus{
+    outline-width:0;
+}
+.alignItems{
+    text-align: center;
+    font-size: 1.4em;
+}
+
+#moleContainer{
+
+    justify-content: center;
+    display: flex;
+    width: 460px;
+    height: 460px;
+    flex-wrap: wrap;
+    margin: auto;
+
+
+}
+
+
+.moleHoles{
+    width:150px;
+    border: solid 1px black;
+}
+.moleImgs{
+    background: url("/img/images.jpeg") center/contain no-repeat;
+}

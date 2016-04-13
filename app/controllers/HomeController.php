@@ -17,7 +17,7 @@ class HomeController extends BaseController {
 
 	public function showBlog()
 	{
-		return View::make('blog');
+		return View::make('projects.blog');
 	}
 
 	public function showMyBlog()
@@ -27,7 +27,7 @@ class HomeController extends BaseController {
 
 	public function showPortfolio()
 	{
-		return View::make('portfolio');
+		return View::make('projects.portfolio');
 	}
 
 	public function showMyPortfolio()
@@ -37,7 +37,7 @@ class HomeController extends BaseController {
 
 	public function showResume()
 	{
-		return View::make('resume');
+		return View::make('projects.resume');
 	}
 
 	public function showMyResume()
@@ -47,8 +47,29 @@ class HomeController extends BaseController {
 
 	public function showSimon()
 	{
-		return View::make('simplesimon');
+		return View::make('projects.simplesimon');
 	}
+
+	public function showWhachaMole()
+	{
+		return View::make('projects.whackamole');
+	}
+
+	public function showWeatherMap()
+	{
+		return View::make('projects.weathermap');
+	}
+
+	public function showCalculator()
+	{
+		return View::make('projects.calculator');
+	}
+
+	public function showTicTacToe()
+	{
+		return View::make('projects.tictactoe');
+	}
+
 
 	public function showSimpleSimon()
 	{

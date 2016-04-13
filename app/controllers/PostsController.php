@@ -9,7 +9,9 @@ class PostsController extends \BaseController {
 	 */
 	public function index()
 	{
-		//
+		return View::make('posts.index', [
+			'posts' => Post::all()
+		]);
 	}
 
 
@@ -20,7 +22,7 @@ class PostsController extends \BaseController {
 	 */
 	public function create()
 	{
-		//
+		return View::make('posts.create');
 	}
 
 
@@ -31,7 +33,19 @@ class PostsController extends \BaseController {
 	 */
 	public function store()
 	{
-		//
+		$validator = Validator::make(Input::all(), Post::$rules);
+
+   // attempt validation
+   if ($validator->fails()) {
+	  	return Redirect::back()->withInput()->withErrors($validator);;
+   } else {
+	   $post = new Post();
+	   $post->title = Input::get('title');
+	   $post->body = Input::get('body');
+	   $post->user_id = 2;
+	   $post->save();
+	   return Redirect::action('PostsController@index');
+   }
 	}
 
 
@@ -43,7 +57,9 @@ class PostsController extends \BaseController {
 	 */
 	public function show($id)
 	{
-		//
+		return View::make('posts.show', [
+			'post' => Post::find($id)
+		]);
 	}
 
 
@@ -55,7 +71,7 @@ class PostsController extends \BaseController {
 	 */
 	public function edit($id)
 	{
-		//
+		return 'This is the edit page';
 	}
 
 
@@ -67,7 +83,7 @@ class PostsController extends \BaseController {
 	 */
 	public function update($id)
 	{
-		//
+		return 'This is the update page';
 	}
 
 
@@ -79,7 +95,7 @@ class PostsController extends \BaseController {
 	 */
 	public function destroy($id)
 	{
-		//
+		return 'This is the destroy page';
 	}
 
 

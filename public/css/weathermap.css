@@ -1,0 +1,38 @@
+
+#addressForm{
+    width: 300px;
+    height: 40px;
+    font-size: 1.4rem;
+    background-color: grey;
+    border: solid 1px red;
+    border-radius: 5px;
+}
+#map-canvas {
+    position: relative;
+    top: 50px;
+    width: 930px;
+    height: 481px;
+    background-color: grey;
+    margin-bottom: 50px;
+    border-radius: 20px;
+}
+    .tableMain{
+        padding: 10px;
+        border-collapse: collapse;
+        border: solid 2px red;
+        text-align: center;
+        width: 100%;
+        background-color: rgb(128, 3, 3);
+    }
+    .tableBorder{
+        padding: 10px;
+        font-size: 1.4rem;
+        border-left: solid 2px red;
+        border-right: solid 2px red;
+        border-collapse: collapse;
+        text-align: center;
+        width: 300px;
+    }
+    .centerAll{
+        text-align: center;
+    }

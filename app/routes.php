@@ -12,7 +12,7 @@
 */
 
 //top one does the same as the bottom one.
-Route::get('/', 'HomeController@showBlog');
+Route::get('/', 'PostsController@index');
 Route::get('/blog', 'HomeController@showMyBlog');
 
 Route::get('/resume', 'HomeController@showResume');
@@ -24,6 +24,11 @@ Route::get('/myportfolio', 'HomeController@showMyPortfolio');
 Route::get('/rolldice/{roll?}/{min?}/{max?}', 'HomeController@rollDice');
 
 Route::get('/simplesimon', 'HomeController@showSimon');
+Route::get('/whackamole', 'HomeController@showWhachaMole');
+Route::get('/weathermap', 'HomeController@showWeatherMap');
+Route::get('/calculator', 'HomeController@showCalculator');
+Route::get('/tictactoe', 'HomeController@showTicTacToe');
+
 
 
 // Route::get('/posts', 'PostsController@index');

@@ -8,8 +8,21 @@ switch (window.location.pathname) {
         break;
     case '/portfolio': $('#projectsNav').addClass('active');
         break;
+    case '/simplesimon': $('#simplesimonNav').addClass("glyphicon glyphicon-menu-right");
+        break;
+    case '/whackamole': $('#whackamoleNav').addClass("glyphicon glyphicon-menu-right");
+        break;
+    case '/calculator': $('#calculatorNav').addClass("glyphicon glyphicon-menu-right");
+        break;
+    case '/weathermap': $('#weathermapNav').addClass("glyphicon glyphicon-menu-right");
+        break;
+    case '/tictactoe': $('#tictactoeNav').addClass("glyphicon glyphicon-menu-right");
+        break;
 }
 
-$('#portfolioNav').on('click', function () {
-    console.log('this');
+$('#projectsNav').on('click', function () {
+    $('#toggleGlyph').removeClass().addClass('glyphicon glyphicon-triangle-bottom');
+});
+$('.dropdown').on('hidden.bs.dropdown', function () {
+    $('#toggleGlyph').removeClass().addClass('glyphicon glyphicon-triangle-left');
 });

@@ -1,12 +1,17 @@
 body{
     background-color: black;
 }
+.simonHolder{
+    height: 540px;
+    padding-top: 60px;
+}
 
 
 #simonHeader{
-    color: red;
+    color: darkred;
     text-align: center;
-    font-size: 1.7rem;
+    font-size: 4.3rem;
+    font-weight: bold;
 }
 
 
@@ -17,7 +22,7 @@ body{
     height: 400px;
     flex-wrap: wrap;
     margin: auto;
-    
+
 }
 
 
@@ -71,8 +76,8 @@ body{
     z-index: 1;
     position: relative;
     margin: auto;
-    bottom: 320px;
+    bottom: 305px;
     border: 20px solid black;
-    color: white;
+    color: black;
     text-align: center;
 }

@@ -9,8 +9,11 @@ class PostsController extends \BaseController {
 	 */
 	public function index()
 	{
+		$posts = Post::orderBy('created_at', 'desc')
+                    ->paginate(4);
+
 		return View::make('posts.index', [
-			'posts' => Post::all()
+			'posts' => $posts
 		]);
 	}
 
@@ -22,7 +25,7 @@ class PostsController extends \BaseController {
 	 */
 	public function create()
 	{
-		return View::make('posts.create');
+		return View::make('posts.create', ['edit' => false]);
 	}
 
 
@@ -33,19 +36,9 @@ class PostsController extends \BaseController {
 	 */
 	public function store()
 	{
-		$validator = Validator::make(Input::all(), Post::$rules);
+		$post = new Post();
 
-   // attempt validation
-   if ($validator->fails()) {
-	  	return Redirect::back()->withInput()->withErrors($validator);;
-   } else {
-	   $post = new Post();
-	   $post->title = Input::get('title');
-	   $post->body = Input::get('body');
-	   $post->user_id = 2;
-	   $post->save();
-	   return Redirect::action('PostsController@index');
-   }
+		return $this->validation($post);
 	}
 
 
@@ -57,8 +50,9 @@ class PostsController extends \BaseController {
 	 */
 	public function show($id)
 	{
+		$post = $this->postIsNull($id);
 		return View::make('posts.show', [
-			'post' => Post::find($id)
+			'post' => $post
 		]);
 	}
 
@@ -71,7 +65,11 @@ class PostsController extends \BaseController {
 	 */
 	public function edit($id)
 	{
-		return 'This is the edit page';
+		$post = $this->postIsNull($id);
+		return View::make('posts.create',[
+			'post' => Post::find($id),
+			'edit' => true
+		]);
 	}
 
 
@@ -83,7 +81,36 @@ class PostsController extends \BaseController {
 	 */
 	public function update($id)
 	{
-		return 'This is the update page';
+		$post = $this->postIsNull($id);
+		return $this->validation($post);
+
+	}
+
+	public function validation($post)
+	{
+		$validator = Validator::make(Input::all(), Post::$rules);
+
+		// attempt validation
+		if ($validator->fails()) {
+			Session::flash('errorMessage', 'Unable to save post.');
+			return Redirect::back()->withInput()->withErrors($validator);
+		} else {
+			Session::flash('successMessage', 'The post was successfully update.');
+			$post->title = Input::get('title');
+			$post->body = Input::get('body');
+			$post->user_id = User::first()->id;
+			$post->save();
+			Log::info(['title'=>$post->title, 'body'=>$post->body, 'user_id'=>$post->user_id]);
+			return Redirect::action('PostsController@show',$post->id);
+		}
+	}
+
+	public function postIsNull($id){
+		$post = Post::find($id);
+		if (is_null($post)) {
+			App::abort(404);
+		}
+		return $post;
 	}
 
 
@@ -95,8 +122,15 @@ class PostsController extends \BaseController {
 	 */
 	public function destroy($id)
 	{
-		return 'This is the destroy page';
-	}
+		$post = $this->postIsNull($id);
 
+		if (! $post) {
+			return Redirect::action('PostsController@index');
+		}
+
+		$post->delete();
+		Session::flash('successMessage', 'The post was successfully deleated.');
+		return Redirect::action('PostsController@index');
+	}
 
 }

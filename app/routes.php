@@ -28,7 +28,9 @@ Route::get('/whackamole', 'HomeController@showWhachaMole');
 Route::get('/weathermap', 'HomeController@showWeatherMap');
 Route::get('/calculator', 'HomeController@showCalculator');
 Route::get('/tictactoe', 'HomeController@showTicTacToe');
+Route::get('/email', 'HomeController@email');
 
+Route::get('/posts/author/{user_id}', 'PostsController@getAuthorWithPosts');
 
 
 // Route::get('/posts', 'PostsController@index');

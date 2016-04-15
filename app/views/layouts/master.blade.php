@@ -4,6 +4,7 @@
         <link rel="stylesheet" href="/css/Bootstrap/bootstrap.css">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
         <link rel="stylesheet" href="/css/blog.css">
+        <link href='https://fonts.googleapis.com/css?family=Playfair+Display' rel='stylesheet' type='text/css'>
         @yield('css')
         <meta charset="utf-8">
     </head>
@@ -11,6 +12,12 @@
         @include('partials.navbar')
 
         @yield('content')
+        @if (Session::has('successMessage'))
+            <div class="alert alert-success">{{{ Session::get('successMessage') }}}</div>
+        @endif
+        @if (Session::has('errorMessage'))
+            <div class="alert alert-danger">{{{ Session::get('errorMessage') }}}</div>
+        @endif
 
         @include('partials.footer')
 

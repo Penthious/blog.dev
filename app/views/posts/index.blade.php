@@ -12,22 +12,18 @@
             <div class="col-sm-8 blog-main">
 
                 @foreach($posts as $post)
-                    <?php $date = $post->created_at ?>
-                    <?php  $converted_date = $date->format('F-d-Y H:i:s') ?>
                     <div class="blog-post">
                         <h2 class="blog-post-title">{{{$post->title}}}</h2>
-                        <p class="blog-post-meta dateColor">{{{$converted_date}}} <span class="normalColor">by </span><a href="#" class="userColor">Mark</a></p>
-
                         <p>{{{$post->body}}}</p>
                         <a href="{{{ action('PostsController@show' , $post->id) }}}"class="btn btn-danger" type="submit" name="button">View blog</a>
+                        <p class="blog-post-meta dateColor text-right">{{{ $post->created_at}}} <span class="normalColor">by </span><a href="#" class="userColor">Mark</a></p>
                         <hr>
                     </div><!-- /.blog-post -->
                 @endforeach
 
                 <nav>
                     <ul class="pager">
-                        <li><a href="#">Previous</a></li>
-                        <li><a href="#">Next</a></li>
+                        {{ $posts->links() }}
                         <li><a href="{{{action('PostsController@create')}}}">Create Post</a></li>
                     </ul>
                 </nav>

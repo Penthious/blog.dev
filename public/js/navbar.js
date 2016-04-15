@@ -26,3 +26,7 @@ $('#projectsNav').on('click', function () {
 $('.dropdown').on('hidden.bs.dropdown', function () {
     $('#toggleGlyph').removeClass().addClass('glyphicon glyphicon-triangle-left');
 });
+
+setTimeout(function () {
+    $('.alert').slideUp(900);
+}, 500);

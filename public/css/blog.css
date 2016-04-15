@@ -7,11 +7,14 @@ html {
     min-height: 100%;
 }
 body {
-  font-family: Georgia, "Times New Roman", Times, serif;
-  color: white;
+ font-family: 'Playfair Display', serif;
+   color: white;
   background-color: black;
   height: 100%;
       margin: 0 0 100px;
+}
+.mainHolder{
+
 }
 
 .blogHolder{
@@ -26,6 +29,7 @@ body {
     z-index: 9999;
     position: fixed;
     width: 100%;
+
 }
 
 .navSecond{
@@ -246,4 +250,9 @@ h6, .h6 {
 
 .textBoxColors{
     color: black;
+}
+
+.errorsColor{
+    color: red;
+    font-size: 2rem;
 }

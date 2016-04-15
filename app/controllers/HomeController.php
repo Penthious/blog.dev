@@ -15,6 +15,21 @@ class HomeController extends BaseController {
 	|
 	*/
 
+    public function email()
+	{
+		$data = [
+			'title' =>'Test',
+			'content' =>'Test content'
+		];
+		Mail::send('emails.welcome', $data, function($message)
+		{
+		    $message
+			    ->from('montealegreluis@gmail.com', 'Luis')
+				->to('montealegreluis@gmail.com', 'Luis Smith')
+				->subject('Welcome!');
+		});
+	}
+
 	public function showBlog()
 	{
 		return View::make('projects.blog');
@@ -27,11 +42,17 @@ class HomeController extends BaseController {
 
 	public function showPortfolio()
 	{
-		return View::make('projects.portfolio');
+		$projects = [
+			['/img/simplesimon.png','Simple Simon', 'Simple Simon built out of jquery and css.',"HomeController@showSimon"],
+        ['/img/tictactoe.png','Tic Tac Toe', 'Tic Tac Toe built out of Vanilla javascript and css.','HomeController@showTicTacToe'],['/img/calculator.png','Calculator', 'Calculator built out of Vanilla javascript and css.','HomeController@showCalculator'],    ['/img/whackamole.png','Whack a Mole', 'Whack a Mole built out of jquery and css.','HomeController@showWhachaMole'],
+            ['/img/weathermap.png','Weather Map', 'Weather Map built out of jquery, css, google api and weather api.','HomeController@showWeatherMap']
+		];
+		return View::make('projects.portfolio', ['projects' => $projects]);
 	}
 
 	public function showMyPortfolio()
 	{
+
 		return Redirect::action('HomeController@showPortfolio');
 	}
 

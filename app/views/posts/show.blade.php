@@ -7,10 +7,14 @@
             <p>
                 {{{$post->body}}}
             </p>
-            <a href="{{{action('PostsController@edit',$post->id)}}}">Edit form</a>
-            {{ Form::open(array('action' => array('PostsController@destroy', $post->id), 'method' => 'DELETE')) }}
-                {{ Form::submit('Delete', ['class' => 'btn btn-danger']) }}
-            {{ Form::close() }}
+            @if(Auth::check())
+                @if (Auth::user()->role == 'admin')
+                    <a href="{{{action('PostsController@edit',$post->id)}}}">Edit form</a>
+                    {{ Form::open(array('action' => array('PostsController@destroy', $post->id), 'method' => 'DELETE')) }}
+                        {{ Form::submit('Delete', ['class' => 'btn btn-danger']) }}
+                    {{ Form::close() }}
+                @endif
+            @endif
         </div>
     </div>
 @endsection

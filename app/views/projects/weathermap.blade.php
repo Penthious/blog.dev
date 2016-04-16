@@ -20,6 +20,9 @@
     </div>
 @endsection
 @section('js')
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDJsRYcUVYvttXRCkBNNC5rfhesUjpXIx8"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key={{{$_ENV['GOOGLE_KEY']}}}"></script>
+    <script type="text/javascript">
+        var weatherMapKey = '{{{$_ENV['WEATHER_KEY']}}}';
+    </script>
     <script src="/js/weathermap.js"></script>
 @endsection

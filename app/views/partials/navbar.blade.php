@@ -5,6 +5,8 @@
             <a id="homeNav" class="blog-nav-item" href="{{{action('PostsController@index')}}}">Home</a>
             <a id="portfolioNav" class="blog-nav-item" href="{{{action('HomeController@showPortfolio')}}}">Portfolio</a>
             <a id="resumeNav" class="blog-nav-item" href="{{{action('HomeController@showResume')}}}">Resume</a>
+
+            <!-- drop down for projects -->
             <div class="dropdown blog-nav-item">
                 <a id="projectsNav" class="dropdown-toggle blog-nav-item" data-toggle="dropdown">Projects
                     <span id="toggleGlyph" class="glyphicon glyphicon-triangle-left"></span></a>
@@ -16,11 +18,69 @@
                         <li><a href="{{{action('HomeController@showTicTacToe')}}}"><span id="tictactoeNav" aria-hidden="true"></span>Tic-Tac-Toe</a></li>
                     </ul>
                 </div>
+                <!-- end drop down for projects -->
 
-            <a class="blog-nav-item" data-toggle="modal" data-target="#myModal"> Contact</a>
-        </nav>
-    </div>
-</div>
+                <!-- start login form -->
+                <a class="blog-nav-item" data-toggle="modal" data-target="#myModal"> Contact</a>
+                @if (Auth::check())
+                    <a href="{{{action('UsersController@logout')}}}" class="blog-nav-item navbar-right"> Sign out</a>
+                @else
+                <ul class="nav navbar-nav navbar-right">
+                    <li><p class="navbar-text line_height_class">Already have an account?</p></li>
+                    <li class="dropdown">
+                        <a class="blog-nav-item" href="#" class="dropdown-toggle" data-toggle="dropdown"><b class="line_height_class">Login</b> <span class="caret"></span></a>
+                        <ul id="login-dp" class="dropdown-menu">
+                            <li>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        Login via
+                                        <div class="social-buttons">
+                                            <a href="#" class="btn btn-fb"><i class="fa fa-facebook"></i> Facebook</a>
+                                            <a href="#" class="btn btn-tw"><i class="fa fa-twitter"></i> Twitter</a>
+                                        </div>
+                                        or
+                                        {{Form::open(['action'=>'UsersController@doLogin', 'method' => 'post'])}}
+                                            <div class="form-group">
+                                                {{ Form::label('email', 'Email',['class'=>'sr-only']) }}
+
+                                                {{ Form::text('email', null, [ 'class'=>"form-control",'placeholder' => 'Email address'], 'required') }}
+                                                @if ($errors->has('email'))
+                                                    {{ $errors->first('email', '<span class="help-block errorsColor">:message</span>') }}
+                                                @endif
+                                            </div>
+                                            <div class="form-group">
+                                                {{ Form::label('password', 'Password',['class'=>'sr-only']) }}
+
+                                                {{ Form::text('password', null, [ 'class'=>"form-control",'placeholder' => 'password'], 'required') }}
+                                                @if ($errors->has('password'))
+                                                    {{ $errors->first('password', '<span class="help-block errorsColor">:message</span>') }}
+                                                @endif
+                                                <div class="help-block text-right"><a href="">Forgot your password ?</a></div>
+                                            </div>
+                                            <div class="form-group">
+                                                <button type="submit" class="btn btn-primary btn-block">Sign in</button>
+                                            </div>
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input type="checkbox"> keep me logged-in
+                                                </label>
+                                            </div>
+                                        {{Form::close()}}
+                                    </div>
+                                    <div class="bottom text-center">
+                                        New here ? <a href="{{{action('UsersController@create')}}}"><b>Join Us</b></a>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                @endif
+                <!-- end login -->
+        </nav><!--end nav bar -->
+    </div><!-- end blog-masthead navContainer -->
+</div><!-- end container navSecond -->
+
 
 
 
@@ -40,7 +100,7 @@
 
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button id="login_button" type="button" class="btn btn-default" data-dismiss="modal">Close</button>
       </div>
     </div>
   </div>

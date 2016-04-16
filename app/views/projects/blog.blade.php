@@ -14,7 +14,7 @@
 
                     <div class="blog-post">
                         <h2 class="blog-post-title">Sample blog post</h2>
-                        <p class="blog-post-meta dateColor">January 1, 2014 <span class="normalColor">by </span><a href="#" class="userColor">Mark</a></p>
+                        <p class="blog-post-meta dateColor">January 1, 2014 <span class="normalColor">by </span><a href="#" class="userColor">{{{$post->user->first_name}}}</a></p>
 
                         <p>This blog post shows a few different types of content that's supported and styled with Bootstrap. Basic typography, images, and code are all supported.</p>
                         <button class="btn btn-danger" type="submit" name="button">View blog</button>

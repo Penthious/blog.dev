@@ -32,6 +32,14 @@ Route::get('/email', 'HomeController@email');
 
 Route::get('/posts/author/{user_id}', 'PostsController@getAuthorWithPosts');
 
+Route::resource('users', 'UsersController');
+
+Route::get('/login', 'UsersController@showLogin');
+
+Route::post('/login/check', 'UsersController@doLogin');
+
+Route::get('/logout', 'UsersController@logout');
+
 
 // Route::get('/posts', 'PostsController@index');
 // Route::get('/posts/create', 'PostsController@create');

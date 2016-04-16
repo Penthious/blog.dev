@@ -30,3 +30,21 @@ $('.dropdown').on('hidden.bs.dropdown', function () {
 setTimeout(function () {
     $('.alert').slideUp(900);
 }, 500);
+
+
+
+$(document).ready(function () {
+
+    if ($('#login-dp > li > div > div.col-md-12 > form > div:nth-child(2) > span').length > 0
+    || $('#login-dp > li > div > div.col-md-12 > form > div:nth-child(3) > span').length > 0) {
+
+        $('body > div.blog-masthead.navContainer > div > nav > ul > li.dropdown').addClass('open');
+    }
+});
+
+
+
+
+$('#login_button').on('click', function (e) {
+
+})

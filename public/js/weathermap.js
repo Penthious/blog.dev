@@ -18,7 +18,7 @@ $("#addressButton").on("click", function (event) {
 function weatherApi() {
     $.get("http://api.openweathermap.org/data/2.5/forecast/daily", {
 
-        APPID: "8c918e3b0b0ee8835f76a3fb956393fc",
+        APPID: weatherMapKey,
         q:     addressInput,
         cnt:   "3",
         units: "imperial"

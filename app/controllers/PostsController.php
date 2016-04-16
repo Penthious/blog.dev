@@ -7,6 +7,11 @@ class PostsController extends \BaseController {
 	 *
 	 * @return Response
 	 */
+
+	//  public function __construct()
+	//  {
+	// 	 $this->beforeFilter('auth', array('except' => array('index')));
+	//  }
 	public function index()
 	{
 		$posts = Post::orderBy('created_at', 'desc')

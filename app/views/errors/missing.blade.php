@@ -7,7 +7,7 @@
     </head>
     <body>
         <p>
-            404 not 
+            404 not         
         </p>
         <script src="/js/jquery-1.12.0.js"></script>
         <script src="/js/"></script>

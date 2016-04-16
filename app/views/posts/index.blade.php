@@ -16,7 +16,7 @@
                         <h2 class="blog-post-title">{{{$post->title}}}</h2>
                         <p>{{{$post->body}}}</p>
                         <a href="{{{ action('PostsController@show' , $post->id) }}}"class="btn btn-danger" type="submit" name="button">View blog</a>
-                        <p class="blog-post-meta dateColor text-right">{{{ $post->created_at}}} <span class="normalColor">by </span><a href="#" class="userColor">Mark</a></p>
+                        <p class="blog-post-meta dateColor text-right">{{{ $post->created_at}}} <span class="normalColor">by </span><a href="#" class="userColor">{{{$post->user->first_name}}}</a></p>
                         <hr>
                     </div><!-- /.blog-post -->
                 @endforeach
@@ -24,7 +24,11 @@
                 <nav>
                     <ul class="pager">
                         {{ $posts->links() }}
-                        <li><a href="{{{action('PostsController@create')}}}">Create Post</a></li>
+                        @if(Auth::check())
+                            @if (Auth::user()->role == 'admin')
+                                <li><a href="{{{action('PostsController@create')}}}">Create Post</a></li>
+                            @endif
+                        @endif
                     </ul>
                 </nav>
             </div><!-- /.blog-main -->

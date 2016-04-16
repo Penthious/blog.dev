@@ -33,6 +33,15 @@ App::after(function($request, $response)
 |
 */
 
+
+Route::filter('admin', function()
+{
+	if (Auth::check() && Auth::user()->role != 'Admin') {
+		Session::flash('errorMessage', 'You do not have permission to do that');
+		return Redirect::action('PostsController@index');
+	}
+});
+
 Route::filter('auth', function()
 {
 	if (Auth::guest())
@@ -43,7 +52,7 @@ Route::filter('auth', function()
 		}
 		else
 		{
-			return Redirect::guest('login');
+			return Redirect::action('PostsController@index');
 		}
 	}
 });

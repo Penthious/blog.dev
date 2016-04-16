@@ -23,7 +23,8 @@
                 <!-- start login form -->
                 <a class="blog-nav-item" data-toggle="modal" data-target="#myModal"> Contact</a>
                 @if (Auth::check())
-                    <a href="{{{action('UsersController@logout')}}}" class="blog-nav-item navbar-right"> Sign out</a>
+                    <a href="{{{action('UsersController@logout')}}}" class="blog-nav-item line_height_class navbar-right"> Sign out</a>
+                    <a class="blog-nav-item navbar-text line_height_class navbar-right">Hello {{{Auth::user()->username}}}</a>
                 @else
                 <ul class="nav navbar-nav navbar-right">
                     <li><p class="navbar-text line_height_class">Already have an account?</p></li>

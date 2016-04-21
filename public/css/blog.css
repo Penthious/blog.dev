@@ -99,6 +99,8 @@ h6, .h6 {
   font-weight: 550;
   color: #cdddeb;
     font-size: 2rem;
+    cursor: pointer;
+    cursor: hand;
 }
 .blog-nav-item:hover,
 .blog-nav-item:focus {
@@ -258,15 +260,6 @@ h6, .h6 {
 }
 
 
-body > div.container.blogHolder > div.row > div.col-sm-8.blog-main > nav > ul > ul > li:nth-child(4) > a{
-    border-radius: 5px 50% 50% 5px;
-}
-
-body > div.container.blogHolder > div.row > div.col-sm-8.blog-main > nav > ul > ul > li.disabled > span{    border-radius: 50% 5px 5px 50%;
-    margin-right: 11px;
-}
-
-
 #login-dp{
     min-width: 250px;
     padding: 14px 14px 0;
@@ -332,3 +325,11 @@ body > div.container.blogHolder > div.row > div.col-sm-8.blog-main > nav > ul > 
  .textSize{
      font-size: 1rem;
  }
+
+.postBackground{
+    background-color: red;
+    padding: 5px;
+    border-radius: 10px;
+    border: 1px solid black;
+    font-size: 1.6rem;
+}

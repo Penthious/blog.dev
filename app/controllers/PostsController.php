@@ -8,20 +8,58 @@ class PostsController extends \BaseController {
 	 * @return Response
 	 */
 
-	 public function __construct()
-	 {
-		 $this->beforeFilter('admin', array('except' => array('index', 'create', 'edit', 'show', 'create', 'store', 'update')));
-		 $this->beforeFilter('auth', array('except' => array('index', 'show')));
-	 }
+	public function __construct()
+	{
+		$this->beforeFilter('admin', array('except' => array('index', 'show')));
+	}
+
 	public function index()
 	{
-		$posts = Post::orderBy('created_at', 'desc')
-                    ->paginate(4);
+		$search = Input::get('search');
+		if (is_null($search)) {
+			$posts = Post::with('user')
+			->orderBy('created_at', 'desc')
+			->paginate(4);
+		}else {
+			$posts = Post::with('user')
+				->where('title', 'like', "%$search%")
+				->orWhere('body', 'like',"%$search%")
+				->orderBy('created_at', 'desc')
+				->paginate(4);
+
+		}
+		$links = Post::select(DB::raw('month(created_at) AS month') , DB::raw('year(created_at) AS year'))
+			->groupBy('month', 'year')
+			->get();
 
 		return View::make('posts.index', [
-			'posts' => $posts
+			'posts' => $posts,
+			'achiveLinks' => $links
 		]);
 	}
+	public function archive()
+	{
+		$year = Input::get('year');
+		$month = Input::get('Month');
+		$posts = Post::with('user')
+		->orderBy('created_at', 'desc');
+		if (! is_null($year)) {
+			$posts->where(DB::raw('year(created_at)'), '=', $year );
+		}
+		if (! is_null($month)) {
+			$posts->where(DB::raw('month(created_at)'), '=', $month );
+		}
+		$links = Post::select(DB::raw('month(created_at) AS month') , DB::raw('year(created_at) AS year'))
+			->groupBy('month', 'year')
+			->get();
+
+
+		return View::make('posts.index', [
+			'posts' => $posts->paginate(4),
+			'achiveLinks' => $links
+		]);
+	}
+
 
 
 	/**
@@ -138,5 +176,7 @@ class PostsController extends \BaseController {
 		Session::flash('successMessage', 'The post was successfully deleated.');
 		return Redirect::action('PostsController@index');
 	}
+
+
 
 }

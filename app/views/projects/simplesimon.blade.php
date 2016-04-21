@@ -6,6 +6,8 @@
 @stop
 
 @section('content')
+    <div class="container blogHolder">
+        <div class="blog-header">
     <div class="container">
         <div class="simonHolder">
             <div>
@@ -27,6 +29,8 @@
             </div>
         </div>
     </div>
+</div>
+</div>
 @stop
 
 @section('js')

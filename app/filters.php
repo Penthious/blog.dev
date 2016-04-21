@@ -36,7 +36,7 @@ App::after(function($request, $response)
 
 Route::filter('admin', function()
 {
-	if (Auth::check() && Auth::user()->role != 'Admin') {
+	if (Auth::check() && Auth::user()->role != 'admin') {
 		Session::flash('errorMessage', 'You do not have permission to do that');
 		return Redirect::action('PostsController@index');
 	}

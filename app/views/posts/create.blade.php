@@ -31,8 +31,5 @@
                 </div>
                 <button type="submit" name="button">Save</button>
             {{ Form::close() }}
-        </div>
-        </div>
-    </div>
-    </div>
+
 @endsection

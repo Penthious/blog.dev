@@ -22,6 +22,8 @@ body{
     height: 400px;
     flex-wrap: wrap;
     margin: auto;
+    border-radius: 10%;
+    background-color: black;
 
 }
 

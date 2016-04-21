@@ -2,6 +2,7 @@
 <div class="blog-masthead navContainer">
     <div class="container navSecond">
         <nav class="blog-nav">
+
             <a id="homeNav" class="blog-nav-item" href="{{{action('PostsController@index')}}}">Home</a>
             <a id="portfolioNav" class="blog-nav-item" href="{{{action('HomeController@showPortfolio')}}}">Portfolio</a>
             <a id="resumeNav" class="blog-nav-item" href="{{{action('HomeController@showResume')}}}">Resume</a>
@@ -23,8 +24,8 @@
                 <!-- start login form -->
                 <a class="blog-nav-item" data-toggle="modal" data-target="#myModal"> Contact</a>
                 @if (Auth::check())
-                    <a href="{{{action('UsersController@logout')}}}" class="blog-nav-item line_height_class navbar-right"> Sign out</a>
-                    <a class="blog-nav-item navbar-text line_height_class navbar-right">Hello {{{Auth::user()->username}}}</a>
+                    <a href="{{{action('UsersController@show',Auth::user()->id)}}}" class="blog-nav-item"> {{{Auth::user()->username}}}'s, account</a>
+                    <a href="{{{action('UsersController@logout')}}}" class="blog-nav-item"> Sign out</a>
                 @else
                 <ul class="nav navbar-nav navbar-right">
                     <li><p class="navbar-text line_height_class">Already have an account?</p></li>
@@ -52,7 +53,7 @@
                                             <div class="form-group">
                                                 {{ Form::label('password', 'Password',['class'=>'sr-only']) }}
 
-                                                {{ Form::text('password', null, [ 'class'=>"form-control",'placeholder' => 'password'], 'required') }}
+                                                {{ Form::password('password', [ 'class' => "form-control",'placeholder' => 'Password'], 'required') }}
                                                 @if ($errors->has('password'))
                                                     {{ $errors->first('password', '<span class="help-block errorsColor">:message</span>') }}
                                                 @endif
@@ -101,6 +102,13 @@
 
       </div>
       <div class="modal-footer">
+          <div class="tomasFooter">
+              <p class="tomasSize">Tomas Leffew</p>
+              <a target="_blank" href="https://www.facebook.com/tomas.leffew.9"><img src="/img/facebooksocial.png" alt="facebook" class="hoverInvert"></a>
+              <a target="_blank" href="https://twitter.com/Penthious/"><img src="/img/twittersocial.png" alt="twitter" class="hoverInvert"></a>
+              <a target="_blank" href="https://www.linkedin.com/in/tomas-leffew-431512b7"><img src="/img/linkedinsocial.png" alt="facebook" class="hoverInvert"></a>
+              <a target="_blank" href="https://github.com/Penthious"><img src="/img/githubsocial.png" alt="facebook" class="hoverInvert" id="githubsocial"></a>
+          </div>
         <button id="login_button" type="button" class="btn btn-default" data-dismiss="modal">Close</button>
       </div>
     </div>

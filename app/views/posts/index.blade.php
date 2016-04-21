@@ -10,7 +10,6 @@
         </div>
         <div class="row">
             <div class="col-sm-8 blog-main">
-
                 @foreach($posts as $post)
                     <div class="blog-post">
                         <h2 class="blog-post-title">{{{$post->title}}}</h2>
@@ -23,7 +22,8 @@
 
                 <nav>
                     <ul class="pager">
-                        {{ $posts->links() }}
+
+                        {{ $posts->appends(array('search' => Input::get('search')))->links() }}
                         @if(Auth::check())
                             @if (Auth::user()->role == 'admin')
                                 <li><a href="{{{action('PostsController@create')}}}">Create Post</a></li>
@@ -35,25 +35,28 @@
 
             <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
                 <div class="sidebar-module sidebar-module-inset">
-                    <h4>About</h4>
-                    <p>This is where I post everything that I feel is intresting and cool, So enjoy the stories that I write!</p>
+                    <h4>Search the blogs</h4>
+
+                        {{ Form::open(array('action' => 'PostsController@index', 'method' => 'GET')) }}
+
+                            <div class="input-group">
+                                <input type="text" class="form-control" placeholder="Search" name="search">
+                                <div class="input-group-btn">
+                                    <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+                                </div>
+                            </div>
+
+                            {{Form::close()}}
+
                 </div>
 
                 <div class="sidebar-module">
                     <h4>Archives</h4>
                     <ol class="list-unstyled">
-                        <li><a href="#">March 2014</a></li>
-                        <li><a href="#">February 2014</a></li>
-                        <li><a href="#">January 2014</a></li>
-                        <li><a href="#">December 2013</a></li>
-                        <li><a href="#">November 2013</a></li>
-                        <li><a href="#">October 2013</a></li>
-                        <li><a href="#">September 2013</a></li>
-                        <li><a href="#">August 2013</a></li>
-                        <li><a href="#">July 2013</a></li>
-                        <li><a href="#">June 2013</a></li>
-                        <li><a href="#">May 2013</a></li>
-                        <li><a href="#">April 2013</a></li>
+                        @foreach ($achiveLinks as $post)
+
+                            <li><a href="{{{action('PostsController@archive')}}}?year={{{$post->year}}}&Month={{{$post->month}}}">{{{ $post->month}}} {{{$post->year}}}</a></li>
+                        @endforeach
                     </ol>
                 </div>
             </div><!-- /.blog-sidebar -->

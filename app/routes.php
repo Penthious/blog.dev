@@ -14,6 +14,7 @@
 //top one does the same as the bottom one.
 Route::get('/', 'PostsController@index');
 Route::get('/blog', 'HomeController@showMyBlog');
+Route::get('/archive', 'PostsController@archive');
 
 Route::get('/resume', 'HomeController@showResume');
 Route::get('/myresume', 'HomeController@showMyResume');
@@ -29,6 +30,12 @@ Route::get('/weathermap', 'HomeController@showWeatherMap');
 Route::get('/calculator', 'HomeController@showCalculator');
 Route::get('/tictactoe', 'HomeController@showTicTacToe');
 Route::get('/email', 'HomeController@email');
+Route::get('/mail', function(){
+    Mail::send('emails.welcome', array('key' => 'value'), function($message)
+    {
+        $message->to('foo@example.com', 'John Smith')->subject('Welcome!');
+    });
+});
 
 Route::get('/posts/author/{user_id}', 'PostsController@getAuthorWithPosts');
 

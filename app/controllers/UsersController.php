@@ -51,9 +51,12 @@ class UsersController extends \BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function show($id)
+	public function show($user)
 	{
-		//
+		$user = $this->postIsNull($user);
+		return View::make('user.show', [
+			'user' => $user
+		]);
 	}
 
 
@@ -146,6 +149,15 @@ class UsersController extends \BaseController {
 			return Redirect::back();
 		}
 	}
+
+	public function postIsNull($user){
+		$user = User::find($user);
+		if (is_null($user)) {
+			App::abort(404);
+		}
+		return $user;
+	}
+
 
 
 

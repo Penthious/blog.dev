@@ -1,4 +1,3 @@
-console.log(window.location.pathname);
 switch (window.location.pathname) {
     case '/': $('#homeNav').addClass('active');
         break;
@@ -35,16 +34,9 @@ setTimeout(function () {
 
 $(document).ready(function () {
 
-    if ($('#login-dp > li > div > div.col-md-12 > form > div:nth-child(2) > span').length > 0
-    || $('#login-dp > li > div > div.col-md-12 > form > div:nth-child(3) > span').length > 0) {
-
+    if (($('#login-dp > li > div > div.col-md-12 > form > div:nth-child(2) > span').length > 0
+    || $('#login-dp > li > div > div.col-md-12 > form > div:nth-child(3) > span').length > 0)
+    && window.location.pathname != '/users/create') {
         $('body > div.blog-masthead.navContainer > div > nav > ul > li.dropdown').addClass('open');
     }
 });
-
-
-
-
-$('#login_button').on('click', function (e) {
-
-})

@@ -11,9 +11,9 @@
             <div class="row">
                 <div class="portfolioItem">
                     <div class="col-md-12 portfolio-item mainProject">
-                        <a href=""><img class="portfolioItem" src="/img/simplesimon.png" alt=""></a>
-                        <h3><a href="#">test</a></h3>
-                        <p>test</p>
+                        <a href=""><img class="portfolioItem" src="/img/placeholder.png" alt=""></a>
+                        <h3><a href="#">capstone</a></h3>
+                        <p>capstone</p>
                     </div>
                 </div>
             </div>

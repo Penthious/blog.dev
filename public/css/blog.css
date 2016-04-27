@@ -20,7 +20,7 @@ body {
 .blogHolder{
     background-color: #545454;
     padding-top: 50px;
-    min-width: 1200px;
+    min-width: 80%;
 }
 
 .navContainer{

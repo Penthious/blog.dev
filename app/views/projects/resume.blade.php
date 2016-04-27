@@ -25,7 +25,7 @@
 			<div class="row">
 				<div class='col-md-4 text-center'>
 					<div class="contact-icons">
-						<a href="mailto:cameron@thenearsky.com"><i class="fa fa-envelope"></i></a>
+						<a href="mailto:tleffew1994@gmail.com"><i class="fa fa-envelope"></i></a>
 					</div>
 				</div>
 				<div class='col-md-4 text-center'>

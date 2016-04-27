@@ -1,5 +1,6 @@
 @extends('layouts.master')
 @section('css')
+    <title>Resume</title>
 @stop
 @section('content')
 

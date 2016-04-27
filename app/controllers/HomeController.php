@@ -17,10 +17,10 @@ class HomeController extends BaseController {
 
     public function email()
 	{
-        Mail::send('emails.welcome', array('key' => 'value'), function($message)
-        {
-            $message->to('foo@example.com', 'John Smith')->subject('Welcome!');
-        });
+		Mail::send('emails.welcome', array('key' => 'value'), function($message)
+		{
+    		$message->to('tleffew1994@gmail.com', 'John Smith')->subject('Welcome!');
+		});
 	}
 
 	public function showBlog()

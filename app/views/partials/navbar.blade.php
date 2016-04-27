@@ -1,6 +1,6 @@
 
 <div class="blog-masthead navContainer">
-    <div class="container navSecond">
+    <div class="container">
         <nav class="blog-nav">
 
             <a id="homeNav" class="blog-nav-item" href="{{{action('PostsController@index')}}}">Home</a>

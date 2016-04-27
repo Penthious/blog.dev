@@ -131,12 +131,12 @@
 					<p><a href="http://www.codeup.com/">Codeup</a></p>
 					<ul>
 						<li>PHP, Laravel, Javascript, MySQL, HTML, CSS and Bootstrap</li>
-						<li>Created Get It Red web and iOS app with my team as our capstone project</li>
+						<li>Working on capstone, Sweet yams a restraunt ordering site.</li>
 						<li>Learned how to work well with a team and assign tasks</li>
 					</ul>
 				</div>
 				<div class='col-md-3'>
-					<p class="start-end-date">February 2014 - April 2014</p>
+					<p class="start-end-date">January 2016 - May 2016</p>
 				</div>
 			</div>
 			<br>

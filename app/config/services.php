@@ -15,8 +15,8 @@ return array(
 	*/
 
 	'mailgun' => array(
-		'domain' => 'postmaster@penthious.com',
-		'secret' =>$_env['MAILGUN_KEY'],
+		'domain' => $_ENV['MAILGUN_DOMAIN'],
+		'secret' =>$_ENV['MAILGUN_KEY'],
 	),
 
 	'mandrill' => array(

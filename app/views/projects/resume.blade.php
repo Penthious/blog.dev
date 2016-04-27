@@ -50,29 +50,29 @@
 				</div>
 			</div>
 			<div class="row">
-				<div class="col-md-11 col-md-offset-1">
+				<div class="col-md-10 col-md-offset-1">
 					<h3 class"text-center">Simple Simon </h3>
 				</div>
-				<div class='col-md-8 col-md-offset-1'>
+				<div class='col-md-10 col-md-offset-1'>
 					<p>Mobile-responsive browser game built with HTML5, CSS3, Flexbox for consistent layout, JavaScript for game logic, DOM manipulation,  jQuery animations.
                     </p>
 				</div>
 			</div>
 			<br>
 			<div class="row">
-				<div class="col-md-11 col-md-offset-1">
+				<div class="col-md-10 col-md-offset-1">
 					<h3>Skatelister</h3>
 				</div>
-				<div class='col-md-8 col-md-offset-1'>
+				<div class='col-md-10 col-md-offset-1'>
 					<p>Object oriented (OOP) content management system for advertisements with user management, front and back-end validation, protection from SQL injection.</p>
 				</div>
 			</div>
 			<br>
 			<div class='row'>
-				<div class="col-md-11 col-md-offset-1">
+				<div class="col-md-10 col-md-offset-1">
 					<h3>Blog/Portfolio</h3>
 				</div>
-				<div class='col-md-8 col-md-offset-1'>
+				<div class='col-md-10 col-md-offset-1'>
 					<p>Developed database driven blog application using Laravel, a PHP MVC framework, implementing management, security features, and external APIs.
                     </p>
 				</div>

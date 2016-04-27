@@ -40,4 +40,3 @@ $(document).ready(function () {
         $('body > div.blog-masthead.navContainer > div > nav > ul > li.dropdown').addClass('open');
     }
 });
-$("body").css('margin-bottom','0');

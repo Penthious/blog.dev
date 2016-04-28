@@ -14,13 +14,27 @@ class HomeController extends BaseController {
 	|	Route::get('/', 'HomeController@showWelcome');
 	|
 	*/
-
-    public function email()
+	public function setUpEmail()
 	{
-		Mail::send('emails.welcome', array('key' => 'value'), function($message)
+		return View::make('emails.email');
+	}
+	public function doContact(){
+		$from    = Input::get('from');
+		$email   = Input::get('email');
+		$subject = Input::get('subject');
+		$body    = Input::get('body');
+		$data    = [
+			'from'    => $from,
+			'email'   => $email,
+			'subject' => $subject,
+			'body'    => $body
+		];
+		Mail::send('emails.contact', $data, function($message) use ($data)
 		{
-    		$message->to('tleffew1994@gmail.com', 'John Smith')->subject('Welcome!');
+			$message->from($data['email'], $data['from']);
+			$message->to('tleffew1994@gmail.com')->subject($data['subject']);
 		});
+		return $data;
 	}
 
 	public function showBlog()

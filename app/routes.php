@@ -29,13 +29,8 @@ Route::get('/whackamole', 'HomeController@showWhachaMole');
 Route::get('/weathermap', 'HomeController@showWeatherMap');
 Route::get('/calculator', 'HomeController@showCalculator');
 Route::get('/tictactoe', 'HomeController@showTicTacToe');
-Route::get('/email', 'HomeController@email');
-Route::get('/mail', function(){
-    Mail::send('emails.welcome', array('key' => 'value'), function($message)
-    {
-        $message->to('foo@example.com', 'John Smith')->subject('Welcome!');
-    });
-});
+Route::post('/email', 'HomeController@doContact');
+Route::get('/emailform', 'HomeController@setUpEmail');
 
 Route::get('/posts/author/{user_id}', 'PostsController@getAuthorWithPosts');
 

@@ -36,7 +36,7 @@
 				</div>
 				<div class='col-md-4 text-center'>
 					<div class="contact-icons">
-						<a href="http://www.linkedin.com/in/tomas-leffew-431512b7/"><i class="fa fa-linkedin-square"></i></a>
+						<a href="http://www.linkedin.com/in/penthious"><i class="fa fa-linkedin-square"></i></a>
 					</div>
 				</div>
 			</div>
